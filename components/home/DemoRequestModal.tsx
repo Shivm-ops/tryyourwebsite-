@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { X, Camera } from "lucide-react";
 import { categories } from "@/lib/config";
@@ -33,7 +33,6 @@ function resizeImage(file: File): Promise<string> {
 
 export default function DemoRequestModal({ category, onClose }: Props) {
   const router = useRouter();
-  const fileRef = useRef<HTMLInputElement>(null);
   const [businessName, setBusinessName] = useState("");
   const [photo, setPhoto] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -45,6 +44,12 @@ export default function DemoRequestModal({ category, onClose }: Props) {
     const resized = await resizeImage(file);
     setPhoto(resized);
     setLoading(false);
+  }
+
+  function onFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const f = e.target.files?.[0];
+    if (f) handleFile(f);
+    e.target.value = "";
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -83,6 +88,7 @@ export default function DemoRequestModal({ category, onClose }: Props) {
             </h2>
           </div>
           <button
+            type="button"
             onClick={onClose}
             className="text-white/50 hover:text-white mt-0.5 transition-colors"
             aria-label="Close"
@@ -95,9 +101,7 @@ export default function DemoRequestModal({ category, onClose }: Props) {
         <form onSubmit={handleSubmit} className="px-7 py-6 space-y-5">
           {/* Business name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
-              Business name
-            </label>
+            <p className="block text-sm font-medium text-gray-700 mb-1.5">Business name</p>
             <input
               type="text"
               placeholder="e.g. Sharma Bakery, City Salon…"
@@ -109,34 +113,30 @@ export default function DemoRequestModal({ category, onClose }: Props) {
 
           {/* Photo upload */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+            <p className="text-sm font-medium text-gray-700 mb-1.5">
               Business photo{" "}
               <span className="text-gray-400 font-normal">(becomes the hero background)</span>
-            </label>
-            <input
-              type="file"
-              accept="image/*"
-              ref={fileRef}
-              id="demo-photo-upload"
-              className="sr-only"
-              onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
-            />
+            </p>
+
             {photo ? (
-              <div
-                className="relative rounded-2xl overflow-hidden cursor-pointer group"
-                style={{ height: 160 }}
-                onClick={() => fileRef.current?.click()}
-              >
+              /* Photo preview — invisible input covers it so clicking anywhere changes photo */
+              <div className="relative rounded-2xl overflow-hidden group" style={{ height: 160 }}>
                 <img src={photo} alt="Preview" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                   <span className="text-white text-xs font-semibold bg-black/50 px-4 py-2 rounded-full">
                     Change photo
                   </span>
                 </div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={onFileChange}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                />
               </div>
             ) : (
-              <label
-                htmlFor="demo-photo-upload"
+              /* Upload zone — invisible input covers the entire zone */
+              <div
                 onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
                 onDragLeave={() => setDragging(false)}
                 onDrop={(e) => {
@@ -145,10 +145,8 @@ export default function DemoRequestModal({ category, onClose }: Props) {
                   const f = e.dataTransfer.files[0];
                   if (f) handleFile(f);
                 }}
-                className={`border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all block ${
-                  dragging
-                    ? "border-green-500 bg-green-50"
-                    : "border-gray-200 hover:border-green-400 hover:bg-green-50/40"
+                className={`relative border-2 border-dashed rounded-2xl p-8 text-center transition-all ${
+                  dragging ? "border-green-500 bg-green-50" : "border-gray-200 hover:border-green-400 hover:bg-green-50/40"
                 }`}
               >
                 {loading ? (
@@ -163,7 +161,15 @@ export default function DemoRequestModal({ category, onClose }: Props) {
                     <p className="text-xs text-gray-400 mt-1">JPG, PNG, WEBP — any size</p>
                   </>
                 )}
-              </label>
+                {!loading && (
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={onFileChange}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  />
+                )}
+              </div>
             )}
           </div>
 
