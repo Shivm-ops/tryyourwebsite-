@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { categories } from "@/lib/config";
 import DemoRequestModal from "./DemoRequestModal";
 
@@ -20,48 +20,74 @@ export default function CategoryGrid() {
 
   return (
     <>
-      <section id="demos" className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Choose your business type
+      <section id="demos" className="relative py-24 px-4 bg-transparent border-t border-slate-100/50">
+        {/* Ambient Blur Orb */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none select-none" />
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <p className="text-xs font-bold tracking-[0.25em] text-emerald-600 uppercase mb-3">Live Interactive Sandbox</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Choose your business category
             </h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              Upload your photo and see your business name on a real website — before you pay a rupee.
+            <p className="text-slate-500 max-w-xl mx-auto mt-4 text-base font-medium">
+              Click any industry card, load your custom assets, and generate a premium live preview on the spot.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((cat) => (
               <button
                 key={cat.slug}
                 onClick={() => setSelected(cat)}
-                className="group rounded-2xl overflow-hidden border border-stone-200 hover:border-stone-300 hover:shadow-lg transition-all duration-300 bg-white text-left w-full"
+                className="group rounded-3xl overflow-hidden border border-slate-200/60 bg-white/80 backdrop-blur-md shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-300/40 transition-all duration-500 text-left w-full cursor-pointer flex flex-col justify-between"
               >
+                {/* Header card preview */}
                 <div
-                  className="h-32 flex flex-col items-start justify-end p-5 relative overflow-hidden"
-                  style={{ backgroundColor: cat.bgPreview }}
+                  className="h-36 flex flex-col items-start justify-end p-6 relative overflow-hidden"
+                  style={{ backgroundColor: `${cat.bgPreview}ee` }}
                 >
                   <div
-                    className="absolute inset-0 opacity-10 text-9xl font-black flex items-center justify-end pr-6 pointer-events-none select-none"
-                    style={{ color: cat.accentColor, filter: "blur(1px)" }}
+                    className="absolute inset-0 opacity-15 text-[10rem] font-black flex items-center justify-end pr-4 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110"
+                    style={{ color: cat.accentColor, filter: "blur(0.5px)" }}
                     aria-hidden="true"
                   >
                     {icons[cat.slug]}
                   </div>
-                  <span className="text-2xl mb-2" aria-hidden="true">{icons[cat.slug]}</span>
+                  <span className="text-3xl mb-3 filter drop-shadow-md" aria-hidden="true">{icons[cat.slug]}</span>
                   <span
-                    className="text-xs font-bold tracking-widest uppercase"
+                    className="text-[10px] font-extrabold tracking-[0.2em] uppercase px-3 py-1 rounded-full bg-white/95 shadow-sm"
                     style={{ color: cat.accentColor }}
                   >
                     {cat.business}
                   </span>
                 </div>
-                <div className="p-5">
-                  <h3 className="font-semibold text-gray-900 mb-1">{cat.name}</h3>
-                  <p className="text-sm text-gray-500 mb-4">{cat.desc}</p>
-                  <div className="flex items-center gap-2 text-sm font-medium text-green-700 group-hover:gap-3 transition-all">
-                    Add your photo & preview
-                    <ArrowRight className="w-4 h-4" />
+
+                {/* Content */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-extrabold text-slate-800 text-lg mb-2 group-hover:text-emerald-700 transition-colors">
+                      {cat.name}
+                    </h3>
+                    <p className="text-xs text-slate-500 leading-relaxed mb-6 font-medium">
+                      {cat.desc}
+                    </p>
+                  </div>
+                  
+                  {/* Action Link Footer */}
+                  <div 
+                    className="flex items-center justify-between text-xs font-extrabold border-t pt-4 uppercase tracking-wider"
+                    style={{ color: cat.accentColor, borderColor: "rgba(226, 232, 240, 0.6)" }}
+                  >
+                    <span className="flex items-center gap-1">
+                      <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+                      Configure Preview
+                    </span>
+                    <div className="w-7 h-7 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center transition-all group-hover:translate-x-1 group-hover:bg-slate-100">
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
                   </div>
                 </div>
               </button>

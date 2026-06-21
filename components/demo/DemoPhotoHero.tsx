@@ -6,7 +6,13 @@ type DemoData = {
   photo?: string | null;
 };
 
-export default function DemoPhotoHero({ overlayOpacity = 0.72 }: { overlayOpacity?: number }) {
+export default function DemoPhotoHero({
+  overlayOpacity = 0.72,
+  fallbackUrl,
+}: {
+  overlayOpacity?: number;
+  fallbackUrl?: string;
+}) {
   const [data, setData] = useState<DemoData | null>(null);
 
   useEffect(() => {
@@ -16,12 +22,14 @@ export default function DemoPhotoHero({ overlayOpacity = 0.72 }: { overlayOpacit
     } catch {}
   }, []);
 
-  if (!data?.photo) return null;
+  const photoUrl = data?.photo || fallbackUrl;
+
+  if (!photoUrl) return null;
 
   return (
     <>
       <img
-        src={data.photo}
+        src={photoUrl}
         alt="Your business"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: 1 }}
@@ -30,7 +38,7 @@ export default function DemoPhotoHero({ overlayOpacity = 0.72 }: { overlayOpacit
         className="absolute inset-0"
         style={{ zIndex: 2, backgroundColor: `rgba(0,0,0,${overlayOpacity})` }}
       />
-      {data.businessName && (
+      {data?.businessName && (
         <div
           className="absolute left-1/2 -translate-x-1/2 px-5 py-2 rounded-full text-xs font-semibold whitespace-nowrap backdrop-blur-sm border border-white/20"
           style={{

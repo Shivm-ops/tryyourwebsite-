@@ -1,10 +1,11 @@
 import { DM_Sans, Libre_Baskerville } from "next/font/google";
+import Image from "next/image";
 import DisclaimerBanner from "@/components/shared/DisclaimerBanner";
 import DemoNav from "@/components/demo/DemoNav";
 import DemoFooter from "@/components/demo/DemoFooter";
 import DemoStamp from "@/components/shared/DemoStamp";
 import { WHATSAPP_URL } from "@/lib/config";
-import { Shield, CreditCard, MapPin, Award, BedDouble, Square } from "lucide-react";
+import { Shield, CreditCard, MapPin, Award, BedDouble, Square, ArrowRight, Star } from "lucide-react";
 import DemoPhotoHero from "@/components/demo/DemoPhotoHero";
 
 const baskerville = Libre_Baskerville({
@@ -19,114 +20,123 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
 });
 
-const BG = "#F4F0E8";
-const BG_ALT = "#ffffff";
-const PRIMARY = "#1C3144";
-const SECONDARY = "#B87333";
-const TEXT = "#1A1A1A";
-const MUTED = "#6A7A88";
-const BORDER = "#E0D8C8";
+const BG = "#FAF9F6";       // Luxury warm alabaster stone
+const BG_ALT = "#FFFFFF";   // Pure white
+const PRIMARY = "#0F172A";  // Midnight obsidian navy
+const SECONDARY = "#B45309"; // Warm luxury bronze/gold
+const TEXT = "#1E293B";     // Deep charcoal
+const MUTED = "#64748B";    // Soft grey
+const BORDER = "#EBE8E0";   // Warm stone border
 
 const stats = [
   { value: "15+", label: "Years experience" },
   { value: "500+", label: "Happy families" },
-  { value: "100+", label: "Active listings" },
+  { value: "100+", label: "Premium listings" },
   { value: "₹0", label: "Hidden charges" },
 ];
 
 const listings = [
   {
-    type: "2 BHK Apartment",
+    type: "2 BHK Premium Apartment",
     location: "Shahupuri",
     size: "950 sq ft",
     price: "₹45 Lakh",
     tag: "Ready to move",
+    img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&q=80",
   },
   {
-    type: "3 BHK Apartment",
+    type: "3 BHK Luxury Residence",
     location: "Rajarampuri",
     size: "1,350 sq ft",
     price: "₹78 Lakh",
     tag: "New launch",
+    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&q=80",
   },
   {
-    type: "Commercial Space",
+    type: "Modern Commercial Space",
     location: "Laxmipuri",
     size: "800 sq ft",
     price: "₹1.2 Crore",
     tag: "Prime location",
+    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&q=80",
   },
   {
-    type: "Bungalow",
+    type: "Exclusive Heritage Bungalow",
     location: "Shivaji Park",
     size: "2,400 sq ft",
     price: "₹1.4 Crore",
     tag: "Luxury",
+    img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&q=80",
   },
   {
-    type: "Villa",
+    type: "Contemporary Skyline Villa",
     location: "Karvir",
     size: "3,200 sq ft",
     price: "₹1.8 Crore",
     tag: "Exclusive",
+    img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=80",
   },
   {
-    type: "Residential Plot",
+    type: "Premium Residential Plot",
     location: "Bypass Road",
     size: "1,500 sq ft",
     price: "₹28 Lakh",
     tag: "Invest now",
+    img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=500&q=80",
   },
 ];
 
 const whyUs = [
-  { icon: Shield, label: "Legal expertise", desc: "Full documentation support & title verification" },
-  { icon: CreditCard, label: "Home loan assistance", desc: "Tie-ups with 10+ leading banks" },
-  { icon: MapPin, label: "Site visit support", desc: "Dedicated agent accompanies every visit" },
-  { icon: Award, label: "Post-sale service", desc: "Society registration & possession assistance" },
+  { icon: Shield, label: "Legal Expertise", desc: "Full documentation support & verification." },
+  { icon: CreditCard, label: "Home Loan Support", desc: "Partnerships with 10+ leading banks." },
+  { icon: MapPin, label: "Guided Site Visits", desc: "Private vehicle & agent accompanies every visit." },
+  { icon: Award, label: "Post-Sale Service", desc: "Society registration & possession handholding." },
 ];
 
-const galleryColors = ["#E8E0D0", "#DDD5C5", "#E4DCD0", "#D8D0C0", "#EAE2D2", "#E0D8C8"];
+const galleryImages = [
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
+  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
+  "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80",
+  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80",
+  "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80",
+];
 
 export default function RealEstatePage() {
   return (
-    <div className={`${baskerville.variable} ${dmSans.variable}`} style={{ backgroundColor: BG, color: TEXT }}>
-      <DisclaimerBanner bgColor="#E0D8CA" textColor="#3A2A10" />
+    <div className={`${baskerville.variable} ${dmSans.variable} font-[family-name:var(--font-dm-sans)]`} style={{ backgroundColor: BG, color: TEXT }}>
+      <DisclaimerBanner bgColor="#B45309" textColor="#FFFFFF" />
       <DemoNav
         businessName="Prestige Properties"
         bgColor={BG_ALT}
-        textColor={TEXT}
+        textColor={PRIMARY}
         accentColor={SECONDARY}
         borderColor={BORDER}
       />
 
       {/* Hero */}
-      <section
-        className="relative min-h-[85vh] flex flex-col items-center justify-center px-4 py-24 text-center overflow-hidden"
-        style={{ backgroundColor: BG, color: PRIMARY }}
-      >
-        <DemoPhotoHero />
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 py-24 text-center overflow-hidden">
+        <DemoPhotoHero fallbackUrl="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" overlayOpacity={0.4} />
         <DemoStamp />
-        <div className="relative z-20 max-w-3xl mx-auto">
-          <p className="text-xs font-bold tracking-[0.3em] uppercase mb-6" style={{ color: SECONDARY }}>
+        <div className="relative z-20 max-w-3xl mx-auto bg-white/90 backdrop-blur-md p-8 md:p-14 rounded-3xl border border-slate-200/50 shadow-2xl">
+          <p className="text-xs font-bold tracking-[0.3em] uppercase mb-4" style={{ color: SECONDARY }}>
             Kolhapur · Since 2008
           </p>
           <h1
-            className="font-[family-name:var(--font-baskerville)] text-5xl md:text-6xl font-bold leading-tight mb-6"
+            className="font-[family-name:var(--font-baskerville)] text-4xl md:text-6xl font-bold leading-[1.15] mb-6"
             style={{ color: PRIMARY }}
           >
-            Find your place
+            Find your perfect place
             <br />
-            <em>in Kolhapur.</em>
+            <span className="italic" style={{ color: SECONDARY }}>in Kolhapur.</span>
           </h1>
-          <p className="text-base md:text-lg leading-relaxed mb-10 max-w-xl mx-auto" style={{ color: MUTED }}>
-            Premium residential, commercial & investment properties across
-            Kolhapur. Trusted by 500+ families. Zero hidden charges.
+          <p className="text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: MUTED }}>
+            Premium residential apartments, commercial spaces & investment plots across Kolhapur. Sourced by specialists, trusted by 500+ local families.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#listings"
-              className="px-8 py-3.5 rounded-full font-semibold text-sm text-white"
+              className="px-8 py-3.5 rounded-full font-semibold text-sm text-white shadow-lg transition-all hover:scale-105"
               style={{ backgroundColor: PRIMARY }}
             >
               View Properties
@@ -135,7 +145,7 @@ export default function RealEstatePage() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 rounded-full font-semibold text-sm border-2"
+              className="px-8 py-3.5 rounded-full font-semibold text-sm border-2 bg-white transition-colors"
               style={{ borderColor: SECONDARY, color: SECONDARY }}
             >
               Talk to an Agent
@@ -145,71 +155,76 @@ export default function RealEstatePage() {
       </section>
 
       {/* Stats */}
-      <section className="py-14 px-4" style={{ backgroundColor: PRIMARY }}>
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <section className="py-12 px-4 shadow-inner" style={{ backgroundColor: PRIMARY }}>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((s) => (
             <div key={s.label}>
-              <p className="text-3xl font-bold mb-1" style={{ color: SECONDARY }}>{s.value}</p>
-              <p className="text-sm text-white opacity-70">{s.label}</p>
+              <p className="text-3xl font-extrabold mb-1" style={{ color: SECONDARY }}>{s.value}</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-300/80">{s.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Listings */}
-      <section id="listings" className="py-20 px-4" style={{ backgroundColor: BG_ALT }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: SECONDARY }}>
-              Available now
-            </p>
+      <section id="listings" className="py-24 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: SECONDARY }}>Available listings</p>
             <h2
               className="font-[family-name:var(--font-baskerville)] text-4xl font-bold"
               style={{ color: PRIMARY }}
             >
               Featured Properties
             </h2>
+            <p className="text-base mt-2" style={{ color: MUTED }}>Browse through handpicked villas, residential layouts, and commercial hubs.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {listings.map((prop) => (
               <div
                 key={prop.type + prop.location}
-                className="rounded-2xl overflow-hidden"
-                style={{ border: `1px solid ${BORDER}` }}
+                className="rounded-3xl overflow-hidden border bg-slate-50/50 shadow-sm hover:shadow-xl transition-all duration-300 group"
+                style={{ borderColor: BORDER }}
               >
-                {/* Property image placeholder */}
-                <div className="h-44 relative" style={{ backgroundColor: "#E8E0D0" }}>
+                <div className="h-56 relative overflow-hidden bg-slate-200">
+                  <Image
+                    src={prop.img}
+                    alt={prop.type}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                   <div
-                    className="absolute top-3 left-3 text-xs font-bold px-3 py-1 rounded-full"
-                    style={{ backgroundColor: PRIMARY, color: "#fff" }}
+                    className="absolute top-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider shadow-sm"
+                    style={{ backgroundColor: PRIMARY }}
                   >
                     {prop.tag}
                   </div>
                 </div>
-                <div className="p-5">
-                  <p className="font-bold text-base mb-1" style={{ color: PRIMARY }}>{prop.type}</p>
-                  <div className="flex items-center gap-1 mb-2">
-                    <MapPin className="w-3.5 h-3.5" style={{ color: MUTED }} />
-                    <p className="text-xs" style={{ color: MUTED }}>{prop.location}, Kolhapur</p>
+                <div className="p-6 bg-white">
+                  <p className="font-bold text-lg mb-1" style={{ color: PRIMARY }}>{prop.type}</p>
+                  <div className="flex items-center gap-1.5 mb-4">
+                    <MapPin className="w-4 h-4 text-slate-400" />
+                    <p className="text-xs font-semibold" style={{ color: MUTED }}>{prop.location}, Kolhapur</p>
                   </div>
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-4 mb-6 border-y py-3" style={{ borderColor: BORDER }}>
                     <div className="flex items-center gap-1">
-                      <BedDouble className="w-3.5 h-3.5" style={{ color: MUTED }} />
+                      <BedDouble className="w-4 h-4 text-slate-400" />
                       <span className="text-xs" style={{ color: MUTED }}>{prop.type.includes("Plot") || prop.type.includes("Commercial") ? "Commercial" : "Residential"}</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Square className="w-3.5 h-3.5" style={{ color: MUTED }} />
+                      <Square className="w-4 h-4 text-slate-400" />
                       <span className="text-xs" style={{ color: MUTED }}>{prop.size}</span>
                     </div>
                   </div>
                   <div className="flex justify-between items-center">
-                    <p className="font-bold text-lg" style={{ color: SECONDARY }}>{prop.price}</p>
+                    <p className="font-extrabold text-xl" style={{ color: SECONDARY }}>{prop.price}</p>
                     <a
                       href={WHATSAPP_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-semibold px-4 py-2 rounded-full"
-                      style={{ backgroundColor: PRIMARY, color: "#fff" }}
+                      className="text-xs font-bold px-5 py-2.5 rounded-full text-white transition-transform hover:scale-105"
+                      style={{ backgroundColor: PRIMARY }}
                     >
                       Enquire
                     </a>
@@ -222,30 +237,30 @@ export default function RealEstatePage() {
       </section>
 
       {/* Why us */}
-      <section className="py-20 px-4" style={{ backgroundColor: BG }}>
+      <section className="py-24 px-4" style={{ backgroundColor: BG }}>
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2
               className="font-[family-name:var(--font-baskerville)] text-4xl font-bold"
               style={{ color: PRIMARY }}
             >
-              Why choose Prestige Properties
+              Why Choose Prestige Properties
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyUs.map((item) => (
               <div
                 key={item.label}
-                className="p-6 rounded-2xl"
-                style={{ backgroundColor: BG_ALT, border: `1px solid ${BORDER}` }}
+                className="p-8 rounded-3xl bg-white border shadow-sm hover:shadow-md transition-shadow"
+                style={{ borderColor: BORDER }}
               >
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: PRIMARY + "10" }}
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
+                  style={{ backgroundColor: `${PRIMARY}10` }}
                 >
                   <item.icon className="w-5 h-5" style={{ color: PRIMARY }} />
                 </div>
-                <p className="font-bold text-sm mb-1" style={{ color: PRIMARY }}>{item.label}</p>
+                <p className="font-bold text-base mb-2" style={{ color: PRIMARY }}>{item.label}</p>
                 <p className="text-xs leading-relaxed" style={{ color: MUTED }}>{item.desc}</p>
               </div>
             ))}
@@ -254,180 +269,181 @@ export default function RealEstatePage() {
       </section>
 
       {/* About */}
-      <section className="py-20 px-4" style={{ backgroundColor: BG_ALT }}>
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center">
-          <div className="flex-1 w-full">
-            <div className="w-full rounded-2xl" style={{ backgroundColor: BORDER, height: "300px" }} />
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+          <div className="flex-1 w-full relative">
+            <div className="w-full h-[380px] rounded-3xl overflow-hidden shadow-2xl relative border-4 border-slate-100">
+              <Image 
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" 
+                alt="Broker team" 
+                fill 
+                className="object-cover" 
+              />
+            </div>
           </div>
           <div className="flex-1">
-            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: SECONDARY }}>About us</p>
+            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: SECONDARY }}>Our Ethos</p>
             <h2
-              className="font-[family-name:var(--font-baskerville)] text-3xl font-bold mb-5"
+              className="font-[family-name:var(--font-baskerville)] text-3xl md:text-4xl font-bold mb-5"
               style={{ color: PRIMARY }}
             >
-              Kolhapur&apos;s most trusted
+              Kolhapur&apos;s Most Trusted
               <br />
-              <em>real estate partner</em>
+              <span className="italic" style={{ color: SECONDARY }}>Real Estate Advisory</span>
             </h2>
-            <p className="text-sm leading-relaxed mb-4" style={{ color: MUTED }}>
-              Prestige Properties has been Kolhapur&apos;s most trusted real estate
-              partner since 2008. With 500+ successful transactions and deep
-              knowledge of every neighbourhood, we help families find not just a
-              house — but a home.
+            <p className="text-base leading-relaxed mb-4" style={{ color: MUTED }}>
+              Prestige Properties has been Kolhapur&apos;s most reliable property portal since 2008. Guided by a team of professional brokers, legal consultants, and asset advisors, we ensure client transactions are 100% verified and stress-free.
             </p>
-            <p className="text-sm leading-relaxed" style={{ color: MUTED }}>
-              Our team handles everything from property search to legal
-              documentation, home loan assistance, and post-sale registration —
-              all under one roof, with zero hidden charges.
+            <p className="text-base leading-relaxed" style={{ color: MUTED }}>
+              Our workflow takes care of property inspections, land titles verification, society coordination, home loans, and registry filing — ensuring zero hidden charges and absolute security.
             </p>
           </div>
         </div>
       </section>
 
       {/* Gallery */}
-      <section className="py-20 px-4" style={{ backgroundColor: BG }}>
+      <section className="py-24 px-4" style={{ backgroundColor: BG }}>
         <div className="max-w-6xl mx-auto">
           <h2
-            className="font-[family-name:var(--font-baskerville)] text-4xl font-bold text-center mb-10"
+            className="font-[family-name:var(--font-baskerville)] text-4xl font-bold text-center mb-16"
             style={{ color: PRIMARY }}
           >
-            Our Properties
+            Premium Architecture Portfolio
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {galleryColors.map((color, i) => (
-              <div key={i} className="rounded-2xl" style={{ backgroundColor: color, height: "200px" }} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {galleryImages.map((img, i) => (
+              <div key={i} className="rounded-3xl overflow-hidden shadow-md relative h-64 border-4 border-white group">
+                <Image
+                  src={img}
+                  alt={`Architecture photo ${i + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Enquiry form (UI only) */}
-      <section className="py-20 px-4" style={{ backgroundColor: BG_ALT }}>
+      {/* Enquiry Form UI */}
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <h2
               className="font-[family-name:var(--font-baskerville)] text-3xl font-bold mb-3"
               style={{ color: PRIMARY }}
             >
-              Get in touch
+              Custom Property Search
             </h2>
-            <p className="text-sm" style={{ color: MUTED }}>
-              Share your requirement and we&apos;ll find the perfect property for you.
+            <p className="text-base" style={{ color: MUTED }}>
+              Submit your desired dimensions and budget, and our agents will send match alerts.
             </p>
           </div>
           <div
-            className="rounded-2xl p-8 space-y-5"
-            style={{ border: `1px solid ${BORDER}`, backgroundColor: BG }}
+            className="rounded-3xl p-8 space-y-5 border shadow-sm"
+            style={{ borderColor: BORDER, backgroundColor: BG }}
           >
             <div>
-              <label className="text-xs font-semibold uppercase tracking-wider mb-1 block" style={{ color: MUTED }}>
+              <label className="text-[10px] font-bold uppercase tracking-wider mb-1 block" style={{ color: MUTED }}>
                 Full Name
               </label>
               <input
                 type="text"
-                placeholder="Your name"
+                placeholder="Name"
                 disabled
-                className="w-full px-4 py-3 rounded-xl text-sm border outline-none cursor-not-allowed"
-                style={{ borderColor: BORDER, backgroundColor: BG_ALT, color: TEXT }}
+                className="w-full px-4 py-3.5 rounded-2xl text-sm border outline-none cursor-not-allowed bg-white"
+                style={{ borderColor: BORDER, color: TEXT }}
               />
             </div>
             <div>
-              <label className="text-xs font-semibold uppercase tracking-wider mb-1 block" style={{ color: MUTED }}>
+              <label className="text-[10px] font-bold uppercase tracking-wider mb-1 block" style={{ color: MUTED }}>
                 Phone Number
               </label>
               <input
                 type="tel"
                 placeholder="+91 00000 00000"
                 disabled
-                className="w-full px-4 py-3 rounded-xl text-sm border outline-none cursor-not-allowed"
-                style={{ borderColor: BORDER, backgroundColor: BG_ALT, color: TEXT }}
+                className="w-full px-4 py-3.5 rounded-2xl text-sm border outline-none cursor-not-allowed bg-white"
+                style={{ borderColor: BORDER, color: TEXT }}
               />
             </div>
             <div>
-              <label className="text-xs font-semibold uppercase tracking-wider mb-1 block" style={{ color: MUTED }}>
-                Requirement
+              <label className="text-[10px] font-bold uppercase tracking-wider mb-1 block" style={{ color: MUTED }}>
+                Preferred Zone
               </label>
               <select
                 disabled
-                className="w-full px-4 py-3 rounded-xl text-sm border outline-none cursor-not-allowed"
-                style={{ borderColor: BORDER, backgroundColor: BG_ALT, color: MUTED }}
+                className="w-full px-4 py-3.5 rounded-2xl text-sm border outline-none cursor-not-allowed bg-white"
+                style={{ borderColor: BORDER, color: MUTED }}
               >
-                <option>Select property type</option>
-                <option>2 BHK Apartment</option>
-                <option>3 BHK Apartment</option>
-                <option>Bungalow / Villa</option>
-                <option>Commercial</option>
-                <option>Plot</option>
+                <option>Select property location</option>
+                <option>Shahupuri</option>
+                <option>Rajarampuri</option>
+                <option>Tarabai Park</option>
+                <option>MIDC Shiroli</option>
               </select>
             </div>
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wider mb-1 block" style={{ color: MUTED }}>
-                Budget (in Lakhs)
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. ₹50L – ₹80L"
-                disabled
-                className="w-full px-4 py-3 rounded-xl text-sm border outline-none cursor-not-allowed"
-                style={{ borderColor: BORDER, backgroundColor: BG_ALT, color: TEXT }}
-              />
-            </div>
             <p className="text-xs text-center" style={{ color: MUTED }}>
-              * This is a demo form. Contact us via WhatsApp to enquire.
+              * This is a demo form. Connect on WhatsApp to start your search.
             </p>
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-center text-sm font-bold py-3.5 rounded-full text-white"
+              className="block text-center text-sm font-bold py-4 rounded-full text-white shadow-lg transition-transform hover:scale-105"
               style={{ backgroundColor: PRIMARY }}
             >
-              Send Enquiry via WhatsApp →
+              Send Requirement via WhatsApp →
             </a>
           </div>
         </div>
       </section>
 
       {/* Contact + CTA */}
-      <section className="py-20 px-4" style={{ backgroundColor: BG }}>
+      <section className="py-24 px-4" style={{ backgroundColor: BG }}>
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8">
-          <div className="flex-1 rounded-2xl p-8" style={{ border: `1px solid ${BORDER}`, backgroundColor: BG_ALT }}>
-            <p className="text-xs font-bold tracking-widest uppercase mb-5" style={{ color: SECONDARY }}>
-              Our office
+          <div className="flex-1 rounded-3xl p-10 bg-white border shadow-sm" style={{ borderColor: BORDER }}>
+            <p className="text-xs font-bold tracking-widest uppercase mb-6" style={{ color: SECONDARY }}>
+              Our Office
             </p>
-            <div className="space-y-4 text-sm" style={{ color: MUTED }}>
+            <div className="space-y-6 text-sm">
               <div>
-                <p className="font-semibold mb-1" style={{ color: PRIMARY }}>Address</p>
-                <p>2nd Floor, Shahu Tower, Tarabai Park,<br />Kolhapur, Maharashtra 416003</p>
+                <p className="font-bold mb-1" style={{ color: PRIMARY }}>Headquarters</p>
+                <p style={{ color: MUTED }}>2nd Floor, Shahu Tower, Tarabai Park,<br />Kolhapur, Maharashtra 416003</p>
               </div>
               <div>
-                <p className="font-semibold mb-1" style={{ color: PRIMARY }}>Phone</p>
-                <p>+91 99001 23456</p>
+                <p className="font-bold mb-1" style={{ color: PRIMARY }}>Hotline</p>
+                <p className="text-base font-bold" style={{ color: SECONDARY }}>+91 99001 23456</p>
               </div>
               <div>
-                <p className="font-semibold mb-1" style={{ color: PRIMARY }}>Hours</p>
-                <p>Mon–Sat: 9:00 AM – 7:00 PM</p>
-                <p>Sunday: By appointment only</p>
+                <p className="font-bold mb-1" style={{ color: PRIMARY }}>Working Hours</p>
+                <p style={{ color: MUTED }}>Mon–Sat: 9:00 AM – 7:00 PM</p>
+                <p style={{ color: MUTED }}>Sunday: By appointment only</p>
               </div>
             </div>
           </div>
           <div
-            className="flex-1 rounded-2xl p-8 flex flex-col justify-center text-center text-white"
+            className="flex-1 rounded-3xl p-10 flex flex-col justify-center text-center text-white relative overflow-hidden shadow-2xl"
             style={{ backgroundColor: PRIMARY }}
           >
-            <p className="text-lg font-bold mb-3">Want this website?</p>
-            <p className="text-sm mb-6 opacity-80">
-              Get a premium real estate website with property listings, filters, enquiry forms and agent profiles.
-            </p>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full font-bold text-sm"
-              style={{ backgroundColor: SECONDARY, color: "#fff" }}
-            >
-              Chat with us on WhatsApp →
-            </a>
+            <div className="relative z-10">
+              <p className="text-2xl font-bold mb-4">Want a website like this?</p>
+              <p className="text-base mb-8 opacity-80 max-w-sm mx-auto">
+                Get a premium real estate broker website with map listings, pricing grids, guided site-visit calls, and client collection leads.
+              </p>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm bg-white shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                style={{ color: PRIMARY }}
+              >
+                Chat with us on WhatsApp
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+            <div className="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-white/5" />
+            <div className="absolute -top-20 -left-20 w-40 h-40 rounded-full bg-white/5" />
           </div>
         </div>
       </section>

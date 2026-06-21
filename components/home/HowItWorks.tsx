@@ -1,45 +1,78 @@
-import { Eye, Palette, Zap } from "lucide-react";
+import { Eye, Palette, Zap, Compass, ArrowRight } from "lucide-react";
 
 const steps = [
   {
     icon: Eye,
     number: "01",
-    title: "Pick your category",
-    desc: "Choose from 6 business types. Each has a fully designed, realistic demo website built for your industry.",
+    title: "Pick Your Category",
+    desc: "Choose from our 6 business sectors. Each has a fully realized, realistic demo template matching local standards.",
   },
   {
     icon: Palette,
     number: "02",
-    title: "Explore the demo",
-    desc: "Scroll through a complete website — hero, about, products/services, gallery, pricing, and contact sections.",
+    title: "Configure & Explore",
+    desc: "Upload a logo or see how it handles fallback stock photos. Test the layout, check the mobile navbar, and click around.",
   },
   {
     icon: Zap,
     number: "03",
-    title: "Talk to us, make it yours",
-    desc: "WhatsApp us to get started. We'll swap in your brand, your content, and your products. Live in 7–14 days.",
+    title: "Request Live Handover",
+    desc: "Ping us on WhatsApp. Our developers import your domains, adjust text descriptions, and publish live in 7–14 days.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="py-20 px-4 bg-stone-50">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How it works</h2>
-          <p className="text-gray-500 max-w-lg mx-auto">
-            From demo to live website in three simple steps.
+    <section id="how" className="relative py-24 px-4 bg-transparent border-t border-slate-100/50">
+      {/* Background decoration */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+        <div className="absolute bottom-10 right-10 w-[250px] h-[250px] rounded-full bg-teal-300/10 blur-[80px]" />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="text-xs font-bold tracking-[0.25em] text-emerald-600 uppercase mb-3">No Guesswork</p>
+          <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">How It Works</h2>
+          <p className="text-slate-500 max-w-sm mx-auto mt-3 font-medium">
+            From picking a mockup to owning a live custom website.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {steps.map((step) => (
-            <div key={step.number} className="text-center">
-              <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-green-700 mx-auto mb-5">
-                <step.icon className="w-7 h-7 text-white" />
+
+        {/* Steps Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
+          {steps.map((step, index) => (
+            <div key={step.number} className="relative flex flex-col items-center text-center group">
+              {/* Connector line (desktop only) */}
+              {index < steps.length - 1 && (
+                <div 
+                  className="hidden md:block absolute top-7 left-[65%] w-[70%] h-0.5 border-t border-dashed border-slate-200" 
+                  aria-hidden="true" 
+                />
+              )}
+
+              {/* Number Badge */}
+              <div className="text-[10px] font-extrabold tracking-widest text-emerald-600/80 mb-4 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100 shadow-sm">
+                STEP {step.number}
               </div>
-              <div className="text-xs font-bold text-green-700 tracking-widest mb-2">{step.number}</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">{step.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+
+              {/* Icon Container */}
+              <div 
+                className="flex items-center justify-center w-16 h-16 rounded-2xl mb-6 shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 border border-white/20"
+                style={{
+                  background: "linear-gradient(135deg, #10B981, #0D9488)",
+                }}
+              >
+                <step.icon className="w-8 h-8 text-white" />
+              </div>
+
+              {/* Title & Desc */}
+              <h3 className="text-lg font-extrabold text-slate-800 mb-3 group-hover:text-emerald-700 transition-colors">
+                {step.title}
+              </h3>
+              <p className="text-sm text-slate-500 leading-relaxed font-medium max-w-[280px]">
+                {step.desc}
+              </p>
             </div>
           ))}
         </div>
