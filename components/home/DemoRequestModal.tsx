@@ -117,7 +117,8 @@ export default function DemoRequestModal({ category, onClose }: Props) {
               type="file"
               accept="image/*"
               ref={fileRef}
-              className="hidden"
+              id="demo-photo-upload"
+              className="sr-only"
               onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
             />
             {photo ? (
@@ -134,8 +135,8 @@ export default function DemoRequestModal({ category, onClose }: Props) {
                 </div>
               </div>
             ) : (
-              <div
-                onClick={() => fileRef.current?.click()}
+              <label
+                htmlFor="demo-photo-upload"
                 onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
                 onDragLeave={() => setDragging(false)}
                 onDrop={(e) => {
@@ -144,7 +145,7 @@ export default function DemoRequestModal({ category, onClose }: Props) {
                   const f = e.dataTransfer.files[0];
                   if (f) handleFile(f);
                 }}
-                className={`border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all ${
+                className={`border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all block ${
                   dragging
                     ? "border-green-500 bg-green-50"
                     : "border-gray-200 hover:border-green-400 hover:bg-green-50/40"
@@ -162,7 +163,7 @@ export default function DemoRequestModal({ category, onClose }: Props) {
                     <p className="text-xs text-gray-400 mt-1">JPG, PNG, WEBP — any size</p>
                   </>
                 )}
-              </div>
+              </label>
             )}
           </div>
 
