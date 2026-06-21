@@ -5,6 +5,7 @@ import DemoFooter from "@/components/demo/DemoFooter";
 import DemoStamp from "@/components/shared/DemoStamp";
 import { WHATSAPP_URL } from "@/lib/config";
 import { Zap, Star } from "lucide-react";
+import DemoPhotoHero from "@/components/demo/DemoPhotoHero";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -96,6 +97,7 @@ export default function GymPage() {
         className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 py-24 text-center overflow-hidden"
         style={{ backgroundColor: BG }}
       >
+        <DemoPhotoHero />
         <DemoStamp />
         {/* accent glow */}
         <div

@@ -7,6 +7,7 @@ import DemoFooter from "@/components/demo/DemoFooter";
 import DemoStamp from "@/components/shared/DemoStamp";
 import { WHATSAPP_URL } from "@/lib/config";
 import { Star, Shield, Sparkles, Calendar } from "lucide-react";
+import DemoPhotoHero from "@/components/demo/DemoPhotoHero";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -100,6 +101,7 @@ export default function SalonPage() {
         className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 py-24 text-center overflow-hidden"
         style={{ backgroundColor: BG }}
       >
+        <DemoPhotoHero />
         <DemoStamp />
         <div className="relative z-20 max-w-2xl mx-auto">
           <p className="text-xs font-bold tracking-[0.3em] uppercase mb-6" style={{ color: ACCENT }}>

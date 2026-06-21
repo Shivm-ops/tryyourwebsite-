@@ -5,6 +5,7 @@ import DemoFooter from "@/components/demo/DemoFooter";
 import DemoStamp from "@/components/shared/DemoStamp";
 import { WHATSAPP_URL } from "@/lib/config";
 import { Shield, CreditCard, MapPin, Award, BedDouble, Square } from "lucide-react";
+import DemoPhotoHero from "@/components/demo/DemoPhotoHero";
 
 const baskerville = Libre_Baskerville({
   subsets: ["latin"],
@@ -104,6 +105,7 @@ export default function RealEstatePage() {
         className="relative min-h-[85vh] flex flex-col items-center justify-center px-4 py-24 text-center overflow-hidden"
         style={{ backgroundColor: BG, color: PRIMARY }}
       >
+        <DemoPhotoHero />
         <DemoStamp />
         <div className="relative z-20 max-w-3xl mx-auto">
           <p className="text-xs font-bold tracking-[0.3em] uppercase mb-6" style={{ color: SECONDARY }}>
