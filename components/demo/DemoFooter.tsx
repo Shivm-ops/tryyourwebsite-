@@ -18,7 +18,7 @@ export default function DemoFooter({ businessName, bgColor, borderColor, textCol
               {businessName.toUpperCase()}
             </p>
             <p className="text-xs" style={{ color: textColor, opacity: 0.45 }}>
-              This is a demo website created by TryYourWebsite, Kolhapur.
+              This is a demo website created by Webrise Studio, Kolhapur.
               Not a real business website.
             </p>
           </div>
@@ -33,7 +33,7 @@ export default function DemoFooter({ businessName, bgColor, borderColor, textCol
           </a>
         </div>
         <div className="mt-6 pt-4 text-center text-xs" style={{ borderTop: `1px solid ${borderColor}`, color: textColor, opacity: 0.3 }}>
-          Demo by TryYourWebsite · Kolhapur, Maharashtra · +91 74994 04640
+          Demo by Webrise Studio · Kolhapur, Maharashtra · +91 74994 04640
         </div>
       </div>
     </footer>

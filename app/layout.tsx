@@ -7,7 +7,7 @@ import ChatbotWidget from "@/components/shared/ChatbotWidget";
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
 
 export const metadata: Metadata = {
-  title: "TryYourWebsite — See your business website before you pay",
+  title: "Webrise Studio — See your business website before you pay",
   description:
     "Kolhapur's demo-first web studio. See a full working demo website for your business category before paying. Bakery, Salon, Restaurant, Clinic, Gym, Real Estate.",
 };

@@ -7,7 +7,7 @@ export default function HomeFooter() {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <div>
-            <p className="text-white font-semibold text-base mb-2">TryYourWebsite</p>
+            <p className="text-white font-semibold text-base mb-2">Webrise Studio</p>
             <p className="text-sm leading-relaxed text-gray-500">
               See your business website before you pay for it. Kolhapur&apos;s demo-first web studio.
             </p>
@@ -30,7 +30,7 @@ export default function HomeFooter() {
           </div>
         </div>
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
-          <p>© 2025 TryYourWebsite. All rights reserved.</p>
+          <p>© 2025 Webrise Studio. All rights reserved.</p>
           <p>Built with care in Kolhapur 🏙️</p>
         </div>
       </div>

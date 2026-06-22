@@ -29,7 +29,7 @@ export default function ChatbotWidget({ accentColor = "#16A34A" }: { accentColor
     {
       id: 0,
       from: "bot",
-      text: "Hello! Welcome to TryYourWebsite. I am your AI assistant. How can I help you shape your online business today?",
+      text: "Hello! Welcome to Webrise Studio. I am your AI assistant. How can I help you shape your online business today?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -102,7 +102,7 @@ export default function ChatbotWidget({ accentColor = "#16A34A" }: { accentColor
             WebkitBackdropFilter: "blur(20px)",
           }}
           role="dialog"
-          aria-label="TryYourWebsite Assistant Chat"
+          aria-label="Webrise Studio Assistant Chat"
         >
           {/* Header */}
           <div

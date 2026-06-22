@@ -27,17 +27,17 @@ export default function HomeNav() {
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 text-base font-extrabold text-slate-900 tracking-wider">
           <Compass className="w-5 h-5 text-emerald-600 animate-spin" style={{ animationDuration: "15s" }} />
-          <span>TryYourWebsite</span>
+          <span>Webrise Studio</span>
           <span className="text-emerald-600">.</span>
         </Link>
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-wider text-slate-600">
-          <a href="#demos" className="hover:text-emerald-700 transition-colors relative py-1 group">
+          <a href="/#demos" className="hover:text-emerald-700 transition-colors relative py-1 group">
             Demos
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 transition-all duration-300 group-hover:w-full" />
           </a>
-          <a href="#how" className="hover:text-emerald-700 transition-colors relative py-1 group">
+          <a href="/#how" className="hover:text-emerald-700 transition-colors relative py-1 group">
             How It Works
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 transition-all duration-300 group-hover:w-full" />
           </a>
@@ -45,7 +45,7 @@ export default function HomeNav() {
             Pricing
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 transition-all duration-300 group-hover:w-full" />
           </Link>
-          <a href="#team" className="hover:text-emerald-700 transition-colors relative py-1 group">
+          <a href="/#team" className="hover:text-emerald-700 transition-colors relative py-1 group">
             Team
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 transition-all duration-300 group-hover:w-full" />
           </a>
@@ -78,14 +78,14 @@ export default function HomeNav() {
       {open && (
         <div className="md:hidden bg-white border-t border-slate-100 px-6 py-6 space-y-4 animate-in fade-in slide-in-from-top-2">
           <a 
-            href="#demos" 
+            href="/#demos" 
             className="block text-sm font-bold text-slate-700 hover:text-emerald-600 py-1"
             onClick={() => setOpen(false)}
           >
             Demos
           </a>
           <a 
-            href="#how" 
+            href="/#how" 
             className="block text-sm font-bold text-slate-700 hover:text-emerald-600 py-1"
             onClick={() => setOpen(false)}
           >
@@ -99,7 +99,7 @@ export default function HomeNav() {
             Pricing
           </Link>
           <a 
-            href="#team" 
+            href="/#team" 
             className="block text-sm font-bold text-slate-700 hover:text-emerald-600 py-1"
             onClick={() => setOpen(false)}
           >

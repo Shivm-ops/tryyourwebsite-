@@ -4,7 +4,7 @@ import { pricingPlans, addons, WHATSAPP_URL } from "@/lib/config";
 import { Check, MessageCircle, Zap } from "lucide-react";
 
 export const metadata = {
-  title: "Pricing — TryYourWebsite",
+  title: "Pricing — Webrise Studio",
   description: "Transparent pricing for business websites in Kolhapur. Static, dynamic, e-commerce and custom packages.",
 };
 
