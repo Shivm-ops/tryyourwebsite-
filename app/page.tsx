@@ -3,6 +3,7 @@ import HomeHero from "@/components/home/HomeHero";
 import CategoryGrid from "@/components/home/CategoryGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import TeamSection from "@/components/home/TeamSection";
+import BuildAppsSection from "@/components/home/BuildAppsSection";
 import HomeFooter from "@/components/home/HomeFooter";
 import { WHATSAPP_URL } from "@/lib/config";
 import { ArrowRight, Sparkles } from "lucide-react";
@@ -31,6 +32,8 @@ export default function HomePage() {
           <CategoryGrid />
           
           <HowItWorks />
+          
+          <BuildAppsSection />
           
           <TeamSection />
           

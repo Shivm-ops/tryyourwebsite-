@@ -8,7 +8,7 @@ const team = [
     email: "shivampatil2309@gmail.com",
     bio: "Turning Kolhapur's local businesses into premium digital brands.",
     color: "#059669",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&q=80"
+    img: "/shivam-photo-cropped.jpeg"
   },
   {
     name: "Sahil Patil",
@@ -24,7 +24,7 @@ const team = [
     email: null,
     bio: "Keeping every website fast, secure, and always live.",
     color: "#0D9488",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&q=80"
+    img: "/shweta-photo-cropped.jpeg"
   },
   {
     name: "Coming Soon",

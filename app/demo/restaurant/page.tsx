@@ -87,7 +87,7 @@ export default function RestaurantPage() {
 
       {/* Hero */}
       <section className="relative min-h-[95vh] flex flex-col items-center justify-center px-4 py-24 text-center overflow-hidden">
-        <DemoPhotoHero fallbackUrl="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80" overlayOpacity={0.65} />
+        <DemoPhotoHero fallbackUrl="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80" overlayOpacity={0.45} />
         <DemoStamp />
         <div className="relative z-20 max-w-3xl mx-auto bg-black/60 backdrop-blur-sm p-8 md:p-14 rounded-3xl border border-stone-800 shadow-2xl">
           <p className="text-xs font-bold tracking-[0.3em] uppercase mb-4" style={{ color: ACCENT }}>

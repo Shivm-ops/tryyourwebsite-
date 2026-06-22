@@ -103,7 +103,7 @@ export default function GymPage() {
 
       {/* Hero */}
       <section className="relative min-h-[95vh] flex flex-col items-center justify-center px-4 py-24 text-center overflow-hidden">
-        <DemoPhotoHero fallbackUrl="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80" overlayOpacity={0.7} />
+        <DemoPhotoHero fallbackUrl="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80" overlayOpacity={0.45} />
         <DemoStamp />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none"
