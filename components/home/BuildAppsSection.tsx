@@ -21,7 +21,7 @@ const appTypes = [
 
 export default function BuildAppsSection() {
   return (
-    <section className="relative py-24 px-4 border-t border-slate-100/50 overflow-hidden">
+    <section className="relative py-24 px-4 border-t border-slate-900/40 overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full bg-violet-500/5 blur-[120px]" />
@@ -33,21 +33,21 @@ export default function BuildAppsSection() {
 
           {/* LEFT — Text */}
           <div className="flex-1 text-center lg:text-left">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-violet-50 text-[10px] font-extrabold uppercase tracking-wider text-violet-700 mb-5 border border-violet-100">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 text-[10px] font-extrabold uppercase tracking-wider text-violet-400 mb-5 border border-slate-800">
               <Sparkles className="w-3.5 h-3.5" />
               Beyond Websites
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight mb-5">
               We also build{" "}
-              <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
                 custom business
               </span>
               <br />
               applications for you.
             </h2>
 
-            <p className="text-sm text-slate-500 leading-relaxed font-medium max-w-md mx-auto lg:mx-0 mb-8">
+            <p className="text-sm text-slate-400 leading-relaxed font-medium max-w-md mx-auto lg:mx-0 mb-8">
               Need a billing system, CRM, inventory tracker, or a custom admin panel
               built specifically for your business? We design and develop it from
               scratch — tailored to your exact workflow, terminology, and team.
@@ -70,12 +70,12 @@ export default function BuildAppsSection() {
               {appTypes.map((app) => (
                 <div
                   key={app.label}
-                  className="group flex flex-col items-center justify-center gap-3 p-5 rounded-2xl border border-slate-200/60 bg-white/80 backdrop-blur-md shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-violet-300/50 transition-all duration-300 text-center"
+                  className="group flex flex-col items-center justify-center gap-3 p-5 rounded-2xl border border-slate-900 bg-slate-950/40 backdrop-blur-md shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-violet-500/50 transition-all duration-300 text-center"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-violet-50 border border-violet-100 flex items-center justify-center group-hover:bg-violet-100 transition-colors">
-                    <app.icon className="w-5 h-5 text-violet-600" />
+                  <div className="w-11 h-11 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center group-hover:bg-slate-850 transition-colors">
+                    <app.icon className="w-5 h-5 text-violet-400" />
                   </div>
-                  <p className="text-xs font-bold text-slate-700 leading-snug group-hover:text-violet-700 transition-colors">
+                  <p className="text-xs font-bold text-slate-300 leading-snug group-hover:text-violet-400 transition-colors">
                     {app.label}
                   </p>
                 </div>
@@ -83,7 +83,7 @@ export default function BuildAppsSection() {
             </div>
 
             {/* Small footnote */}
-            <p className="text-center text-[10px] font-semibold text-slate-400 uppercase tracking-widest mt-6">
+            <p className="text-center text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-6">
               + Any custom application your business needs
             </p>
           </div>

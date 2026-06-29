@@ -38,13 +38,13 @@ const team = [
 
 export default function TeamSection() {
   return (
-    <section id="team" className="relative py-24 px-4 bg-transparent border-t border-slate-100/50">
+    <section id="team" className="relative py-24 px-4 bg-transparent border-t border-slate-900/40">
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-xs font-bold tracking-[0.25em] text-emerald-600 uppercase mb-3">Kolhapur Creators</p>
-          <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">Meet the Team</h2>
-          <p className="text-slate-500 max-w-sm mx-auto mt-3 font-medium">
+          <p className="text-xs font-bold tracking-[0.25em] text-emerald-400 uppercase mb-3">Kolhapur Creators</p>
+          <h2 className="text-4xl font-extrabold text-white tracking-tight">Meet the Team</h2>
+          <p className="text-slate-400 max-w-sm mx-auto mt-3 font-medium">
             A focused team engineering high-conversion web solutions.
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function TeamSection() {
           {team.map((member) => (
             <div
               key={member.name}
-              className="group text-center p-6 rounded-3xl border border-slate-200/50 bg-white/80 backdrop-blur-md shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="group text-center p-6 rounded-3xl border border-slate-900 bg-slate-950/40 backdrop-blur-md shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Avatar */}
@@ -71,7 +71,7 @@ export default function TeamSection() {
                   />
                 </div>
 
-                <h3 className="font-extrabold text-slate-800 mb-1 group-hover:text-emerald-700 transition-colors">
+                <h3 className="font-extrabold text-white mb-1 group-hover:text-emerald-400 transition-colors">
                   {member.name}
                 </h3>
                 
@@ -82,7 +82,7 @@ export default function TeamSection() {
                   {member.role}
                 </span>
 
-                <p className="text-xs text-slate-500 leading-relaxed font-medium mb-6">
+                <p className="text-xs text-slate-400 leading-relaxed font-medium mb-6">
                   {member.bio}
                 </p>
               </div>
@@ -91,13 +91,13 @@ export default function TeamSection() {
               {member.email ? (
                 <a
                   href={`mailto:${member.email}`}
-                  className="inline-flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-600 hover:text-emerald-800 transition-colors border-t pt-4"
+                  className="inline-flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400 hover:text-emerald-300 transition-colors border-t border-slate-900 pt-4"
                 >
                   <Mail className="w-3.5 h-3.5" />
                   <span>{member.email}</span>
                 </a>
               ) : (
-                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 border-t pt-4">
+                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 border-t border-slate-900 pt-4">
                   Active Member
                 </div>
               )}

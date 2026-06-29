@@ -20,18 +20,18 @@ export default function CategoryGrid() {
 
   return (
     <>
-      <section id="demos" className="relative py-24 px-4 bg-transparent border-t border-slate-100/50">
+      <section id="demos" className="relative py-24 px-4 bg-transparent border-t border-slate-900/40">
         {/* Ambient Blur Orb */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none select-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <p className="text-xs font-bold tracking-[0.25em] text-emerald-600 uppercase mb-3">Live Interactive Sandbox</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            <p className="text-xs font-bold tracking-[0.25em] text-emerald-400 uppercase mb-3">Live Interactive Sandbox</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
               Choose your business category
             </h2>
-            <p className="text-slate-500 max-w-xl mx-auto mt-4 text-base font-medium">
+            <p className="text-slate-400 max-w-xl mx-auto mt-4 text-base font-medium">
               Click any industry card, load your custom assets, and generate a premium live preview on the spot.
             </p>
           </div>
@@ -42,7 +42,7 @@ export default function CategoryGrid() {
               <button
                 key={cat.slug}
                 onClick={() => setSelected(cat)}
-                className="group rounded-3xl overflow-hidden border border-slate-200/60 bg-white/80 backdrop-blur-md shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-300/40 transition-all duration-500 text-left w-full cursor-pointer flex flex-col justify-between"
+                className="group rounded-3xl overflow-hidden border border-slate-900 bg-slate-950/40 backdrop-blur-md shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-emerald-500/40 transition-all duration-500 text-left w-full cursor-pointer flex flex-col justify-between"
               >
                 {/* Header card preview */}
                 <div
@@ -68,10 +68,10 @@ export default function CategoryGrid() {
                 {/* Content */}
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-extrabold text-slate-800 text-lg mb-2 group-hover:text-emerald-700 transition-colors">
+                    <h3 className="font-extrabold text-white text-lg mb-2 group-hover:text-emerald-400 transition-colors">
                       {cat.name}
                     </h3>
-                    <p className="text-xs text-slate-500 leading-relaxed mb-6 font-medium">
+                    <p className="text-xs text-slate-400 leading-relaxed mb-6 font-medium">
                       {cat.desc}
                     </p>
                   </div>
@@ -79,13 +79,13 @@ export default function CategoryGrid() {
                   {/* Action Link Footer */}
                   <div 
                     className="flex items-center justify-between text-xs font-extrabold border-t pt-4 uppercase tracking-wider"
-                    style={{ color: cat.accentColor, borderColor: "rgba(226, 232, 240, 0.6)" }}
+                    style={{ color: cat.accentColor, borderColor: "rgba(30, 41, 59, 0.6)" }}
                   >
                     <span className="flex items-center gap-1">
                       <Sparkles className="w-3.5 h-3.5 animate-pulse" />
                       Configure Preview
                     </span>
-                    <div className="w-7 h-7 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center transition-all group-hover:translate-x-1 group-hover:bg-slate-100">
+                    <div className="w-7 h-7 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center transition-all group-hover:translate-x-1 group-hover:bg-slate-800">
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>

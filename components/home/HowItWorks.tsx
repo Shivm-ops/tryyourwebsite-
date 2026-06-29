@@ -23,7 +23,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="relative py-24 px-4 bg-transparent border-t border-slate-100/50">
+    <section id="how" className="relative py-24 px-4 bg-transparent border-t border-slate-900/40">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
         <div className="absolute bottom-10 right-10 w-[250px] h-[250px] rounded-full bg-teal-300/10 blur-[80px]" />
@@ -32,9 +32,9 @@ export default function HowItWorks() {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-xs font-bold tracking-[0.25em] text-emerald-600 uppercase mb-3">No Guesswork</p>
-          <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">How It Works</h2>
-          <p className="text-slate-500 max-w-sm mx-auto mt-3 font-medium">
+          <p className="text-xs font-bold tracking-[0.25em] text-emerald-400 uppercase mb-3">No Guesswork</p>
+          <h2 className="text-4xl font-extrabold text-white tracking-tight">How It Works</h2>
+          <p className="text-slate-400 max-w-sm mx-auto mt-3 font-medium">
             From picking a mockup to owning a live custom website.
           </p>
         </div>
@@ -46,13 +46,13 @@ export default function HowItWorks() {
               {/* Connector line (desktop only) */}
               {index < steps.length - 1 && (
                 <div 
-                  className="hidden md:block absolute top-7 left-[65%] w-[70%] h-0.5 border-t border-dashed border-slate-200" 
+                  className="hidden md:block absolute top-7 left-[65%] w-[70%] h-0.5 border-t border-dashed border-slate-800" 
                   aria-hidden="true" 
                 />
               )}
 
               {/* Number Badge */}
-              <div className="text-[10px] font-extrabold tracking-widest text-emerald-600/80 mb-4 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100 shadow-sm">
+              <div className="text-[10px] font-extrabold tracking-widest text-emerald-400 mb-4 bg-slate-900 px-3 py-1 rounded-full border border-slate-800 shadow-sm">
                 STEP {step.number}
               </div>
 
@@ -67,10 +67,10 @@ export default function HowItWorks() {
               </div>
 
               {/* Title & Desc */}
-              <h3 className="text-lg font-extrabold text-slate-800 mb-3 group-hover:text-emerald-700 transition-colors">
+              <h3 className="text-lg font-extrabold text-white mb-3 group-hover:text-emerald-400 transition-colors">
                 {step.title}
               </h3>
-              <p className="text-sm text-slate-500 leading-relaxed font-medium max-w-[280px]">
+              <p className="text-sm text-slate-400 leading-relaxed font-medium max-w-[280px]">
                 {step.desc}
               </p>
             </div>
